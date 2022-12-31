@@ -19,6 +19,7 @@ public class T1_CydeoVerification {
         String expectedURL="cydeo";
 
         String actualURL= driver.getCurrentUrl();
+
          if(actualURL.contains(expectedURL)){
              System.out.println("URL VERIFICATION PASSED");
          }else {
