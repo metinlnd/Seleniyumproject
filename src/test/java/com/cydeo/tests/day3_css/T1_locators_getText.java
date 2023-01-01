@@ -1,16 +1,17 @@
 package com.cydeo.tests.day3_css;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.cydeo.utility.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class T1_locators_getText {
     public static void main(String[] args) {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver= new ChromeDriver();
+       // WebDriverManager.chromedriver().setup();
+       // WebDriver driver= new ChromeDriver();
+
+        WebDriver driver= WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.navigate().to("https://login1.nextbasecrm.com/");
 
@@ -24,8 +25,11 @@ public class T1_locators_getText {
 
     inputPassword.sendKeys("ksdkdk");
 
-        WebElement errorMessage = driver.findElement(By.className("errortext"));
+    WebElement loginBotton= driver.findElement(By.className("login-btn"));
+    loginBotton.click();
 
+        WebElement errorMessage = driver.findElement(By.className("errortext"));
+        System.out.println(errorMessage);
 String expectedErrorMessage= "Incorrect login or password";
 
 String actualerrormessage=errorMessage.getText();
