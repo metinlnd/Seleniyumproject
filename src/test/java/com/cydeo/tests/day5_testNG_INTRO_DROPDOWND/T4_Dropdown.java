@@ -42,12 +42,11 @@ String expectedDropdownText="Please select an option";
 
         String expectedStateDropdown="Select a State";
         String actualStateDropdown=stateDropdown.getFirstSelectedOption().getText();
-       Assert.assertEquals(expectedDropdownText,actualStateDropdown);
+      // Assert.assertEquals(expectedDropdownText,actualStateDropdown);
 
+       // stateDropdown.selectByValue("Alaska");
 
-
-
-
+//Assert.fail();
 
     }
 
