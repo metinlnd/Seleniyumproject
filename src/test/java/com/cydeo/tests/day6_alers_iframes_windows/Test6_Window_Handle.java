@@ -23,12 +23,14 @@ public class Test6_Window_Handle {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://practice.cydeo.com/windows");
+
+
     }
 
     @Test
     public void mutltipleWindowTest(){
-
         String mainHandle= driver.getWindowHandle();
+
         System.out.println(mainHandle);
 
         String expectedtitle="Windows";
