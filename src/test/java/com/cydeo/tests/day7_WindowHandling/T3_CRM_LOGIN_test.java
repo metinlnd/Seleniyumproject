@@ -1,29 +1,16 @@
 package com.cydeo.tests.day7_WindowHandling;
 
+import com.cydeo.tests.base.TestBase;
 import com.cydeo.utility.BrowserUtils;
 import com.cydeo.utility.CRM_Utilities;
-import com.cydeo.utility.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class T3_CRM_LOGIN_test {
-    public WebDriver driver;
+public class T3_CRM_LOGIN_test extends TestBase {
 
-
-    @BeforeMethod
-    public void setupMetod() {
-
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-
-    }
 
     @Test
     public void crm_login_test() {
