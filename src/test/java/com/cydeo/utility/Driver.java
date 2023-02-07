@@ -15,56 +15,61 @@ public class Driver {
 to the 0bject of this class from outside.
  */
 
-    private Driver(){}
+    private Driver() {
+    }
 
 
-
-/*we make webdriver private because we want to close
- access from outside the class.
- also static we will use it in a static method.
-*/
+    /*we make webdriver private because we want to close
+     access from outside the class.
+     also static we will use it in a static method.
+    */
     private static WebDriver driver;
-
-
-
-
 
 
     /* create a utility method which will return
     same driver instance when we call it*/
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
 
-       if(driver==null){
+        if (driver == null) {
 
-        String browserType=ConfigurationReader.getProperty("browser");
+            String browserType = ConfigurationReader.getProperty("browser");
 
-        switch (browserType){
+            switch (browserType) {
 
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver=new ChromeDriver();
-                driver.manage().window().maximize();
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                break;
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
 
-            case "fireforx":
+                case "fireforx":
 
-                WebDriverManager.firefoxdriver().setup();
-                driver=new FirefoxDriver();
-                driver.manage().window().maximize();
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                break;
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
 
 
+            }
 
         }
-
-       }
 
         return driver;
 
     }
 
 
+    // this method will make sure
+    public static void closeDriver() {
+        if (driver != null) {
+            driver.quit();// this line w
+            driver = null;
 
+
+        }
+
+
+    }
 }
